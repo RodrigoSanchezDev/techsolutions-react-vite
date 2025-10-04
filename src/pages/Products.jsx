@@ -1,15 +1,14 @@
 /**
- * TechSolutions Pro - Products Catalog Page
- * Product Listing with Category Filtering
+ * TechSolutions Pro - Página Catálogo de Productos
+ * Listado y Filtrado de Productos E-commerce
  * 
- * Products page with category-based filtering, responsive grid layout,
- * and product cards with add-to-cart functionality.
- * Includes loading states and error handling.
+ * Página de catálogo con filtrado por categorías, sección de productos destacados,
+ * y funcionalidad de agregar al carrito. Muestra productos en layout grid responsive.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React, { useState } from 'react';

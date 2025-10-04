@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Home Page Component
- * Landing Page with Hero Section and Featured Content
+ * TechSolutions Pro - Componente Página de Inicio
+ * Página Principal con Hero Section y Contenido Destacado
  * 
- * Main landing page featuring hero section, company statistics,
- * featured products, services, testimonials, and call-to-action sections.
- * Implements responsive design with glassmorphism styling.
+ * Página principal que incluye hero section, estadísticas de la empresa,
+ * productos destacados, servicios, testimonios y secciones de llamado a la acción.
+ * Implementa diseño responsive con estilo glassmorphism.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React from 'react';
@@ -41,17 +41,18 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
+      {/* Hero Section - Two Column Layout */}
       <section className="hero-section">
         <Container>
-          <Row className="justify-content-center">
-            <Col lg={8}>
-              <div className="hero-content">
-                <h1>
+          <Row className="align-items-center g-5">
+            {/* Left Column - Text Content */}
+            <Col lg={6}>
+              <div className="hero-content-left">
+                <h1 className="hero-title">
                   <i className="fas fa-rocket me-3"></i>
                   Transformamos tus ideas en soluciones digitales
                 </h1>
-                <p className="lead">
+                <p className="hero-description">
                   Desarrollamos software empresarial de alta calidad con las últimas tecnologías. 
                   Desde aplicaciones web hasta sistemas ERP, convertimos tu visión en realidad.
                 </p>
@@ -64,6 +65,20 @@ const Home = () => {
                     <i className="fas fa-cogs me-2"></i>
                     Nuestros Servicios
                   </Link>
+                </div>
+              </div>
+            </Col>
+
+            {/* Right Column - Image */}
+            <Col lg={6}>
+              <div className="hero-image-container">
+                <div className="hero-image-wrapper">
+                  <img 
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop" 
+                    alt="Equipo de trabajo colaborando en soluciones digitales" 
+                    className="hero-image"
+                  />
+                  <div className="hero-image-accent"></div>
                 </div>
               </div>
             </Col>

@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Project Gallery Page
- * Portfolio Showcase with Project Details
+ * TechSolutions Pro - Página Galería de Proyectos
+ * Exhibición de Portafolio con Detalles de Proyectos
  * 
- * Interactive project gallery with category filtering, project cards,
- * detailed project modals, and company statistics.
- * Features responsive grid layout and project status indicators.
+ * Galería interactiva de proyectos con filtrado por categorías, tarjetas de proyectos,
+ * modales detallados de proyectos y estadísticas de la empresa.
+ * Incluye layout grid responsive e indicadores de estado de proyectos.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React, { useState } from 'react';

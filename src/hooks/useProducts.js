@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Products Data Hook
- * Custom Hook for Product Data Management
+ * TechSolutions Pro - Hook de Datos de Productos
+ * Hook Personalizado para Gestión de Datos de Productos
  * 
- * React hook for fetching and managing product data.
- * Provides loading states, error handling, and featured product filtering.
- * Loads data from JSON and provides utility functions.
+ * Hook de React para obtener y gestionar datos de productos.
+ * Proporciona estados de carga, manejo de errores y filtrado de productos destacados.
+ * Carga datos desde JSON y proporciona funciones utilitarias.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import { useState, useEffect } from 'react';

@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Services Data Hook
- * Custom Hook for Service Data Management
+ * TechSolutions Pro - Hook de Datos de Servicios
+ * Hook Personalizado para Gestión de Datos de Servicios
  * 
- * React hook for managing service data with loading states and filtering.
- * Provides featured services functionality and category-based filtering.
- * Integrates with JSON data source.
+ * Hook de React para gestionar datos de servicios con estados de carga y filtrado.
+ * Proporciona funcionalidad de servicios destacados y filtrado basado en categorías.
+ * Se integra con fuente de datos JSON.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import { useState, useEffect } from 'react';

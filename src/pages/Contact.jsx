@@ -1,15 +1,14 @@
 /**
- * TechSolutions Pro - Contact Page
- * Customer Communication Interface
+ * TechSolutions Pro - Página de Contacto
+ * Formulario de Contacto e Información de la Empresa
  * 
- * Contact form with validation, company information display,
- * and FAQ section. Includes form submission handling and
- * success/error feedback to users.
+ * Página de contacto con formulario profesional, detalles de la empresa,
+ * horarios de atención y enlaces a redes sociales con diseño glassmorphism.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React, { useState } from 'react';

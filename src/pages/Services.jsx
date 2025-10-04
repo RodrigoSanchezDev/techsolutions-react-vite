@@ -1,15 +1,14 @@
 /**
- * TechSolutions Pro - Services Catalog Page
- * Professional Services Showcase
+ * TechSolutions Pro - Página de Servicios
+ * Exhibición de Servicios Profesionales
  * 
- * Services listing page with category filtering, service cards,
- * and call-to-action sections for service inquiries.
- * Features responsive design and smooth category transitions.
+ * Página completa de servicios que muestra servicios tecnológicos profesionales
+ * con filtrado por categorías, servicios destacados y tarjetas de servicios.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React, { useState } from 'react';

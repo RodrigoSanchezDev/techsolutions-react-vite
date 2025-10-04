@@ -1,14 +1,14 @@
 /**
- * TechSolutions Pro - E-commerce Platform
- * Main Application Component
+ * TechSolutions Pro - Plataforma E-commerce
+ * Componente Principal de la Aplicación
  * 
- * This file contains the root application component that sets up routing,
- * global context providers, and the main layout structure.
+ * Este archivo contiene el componente raíz que configura el enrutamiento,
+ * proveedores de contexto globales y la estructura principal del layout.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React from 'react';

@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Shopping Cart Page
- * Cart Management and Order Summary
+ * TechSolutions Pro - Página del Carrito de Compras
+ * Gestión del Carrito y Resumen del Pedido
  * 
- * Complete shopping cart interface with item management,
- * quantity updates, item removal, and checkout navigation.
- * Includes empty cart state and payment method display.
+ * Interfaz completa del carrito de compras con gestión de artículos,
+ * actualización de cantidades, eliminación de artículos y navegación al checkout.
+ * Incluye estado de carrito vacío y visualización de métodos de pago.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React from 'react';

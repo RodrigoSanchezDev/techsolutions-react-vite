@@ -1,14 +1,14 @@
 /**
- * TechSolutions Pro - Loading Component
- * Animated Loading Indicator
+ * TechSolutions Pro - Componente de Carga
+ * Indicador de Carga Animado
  * 
- * Reusable loading component with glassmorphism styling and smooth animations.
- * Provides consistent loading experience across the application.
+ * Componente de carga reutilizable con estilo glassmorphism y animaciones suaves.
+ * Proporciona experiencia de carga consistente en toda la aplicación.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React from 'react';

@@ -89,7 +89,7 @@ const ProductCard = ({ product }) => {
             <div className="price-container">
               {product.descuento ? (
                 <div>
-                  <div className="original-price text-muted text-decoration-line-through small">
+                  <div className="original-price text-white-50 text-decoration-line-through small">
                     {product.precioOriginal}
                   </div>
                   <div className="current-price text-success fw-bold">{product.precio}</div>

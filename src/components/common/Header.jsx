@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Navigation Header Component
- * Responsive Navigation Bar with Cart Integration
+ * TechSolutions Pro - Componente Header de Navegación
+ * Barra de Navegación Responsive con Integración de Carrito
  * 
- * Main navigation component with glassmorphism styling, responsive design,
- * cart dropdown functionality, and active route highlighting.
- * Includes click-outside detection for cart dropdown.
+ * Componente principal de navegación con estilo glassmorphism, diseño responsive,
+ * funcionalidad de dropdown del carrito y resaltado de ruta activa.
+ * Incluye detección de clics fuera para el dropdown del carrito.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React, { useState, useRef, useEffect } from 'react';

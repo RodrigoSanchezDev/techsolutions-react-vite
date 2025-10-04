@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Testimonials Data Hook
- * Custom Hook for Customer Testimonials
+ * TechSolutions Pro - Hook de Datos de Testimonios
+ * Hook Personalizado para Testimonios de Clientes
  * 
- * React hook for loading and managing customer testimonial data.
- * Provides loading states and error handling for testimonial display.
- * Supports customer rating and project information.
+ * Hook de React para cargar y gestionar datos de testimonios de clientes.
+ * Proporciona estados de carga y manejo de errores para visualización de testimonios.
+ * Soporta calificación de clientes e información de proyectos.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import { useState, useEffect } from 'react';

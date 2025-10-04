@@ -5,17 +5,17 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 /**
- * TechSolutions Pro - Main Stylesheet
- * Global Styles and Component Styling
+ * TechSolutions Pro - Hoja de Estilos Principal
+ * Estilos Globales y Estilos de Componentes
  * 
- * Comprehensive stylesheet featuring glassmorphism design system,
- * responsive layouts, animations, and custom component styles.
- * Includes elegant color scheme and modern visual effects.
+ * Hoja de estilos completa con sistema de diseño glassmorphism,
+ * layouts responsive, animaciones y estilos personalizados de componentes.
+ * Incluye esquema de color elegante y efectos visuales modernos.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 /* Elegant Green Theme - Professional Design */
@@ -87,15 +87,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Fondo difuminado con imagen - Sin bordes blancos */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
   background: var(--bg-gradient), var(--bg-image);
   background-size: cover, cover;
   background-position: center, center;
   background-attachment: fixed, fixed;
   background-repeat: no-repeat, no-repeat;
   background-blend-mode: overlay;
-  min-height: 100vh;
-  color: var(--text-primary);
-  line-height: 1.6;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  transform: scale(1.02);
+  z-index: -1;
+}
+
+/* Asegurar que el contenido esté por encima del fondo */
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 code {
@@ -315,15 +337,125 @@ code {
   font-size: 0.9rem;
 }
 
-/* Elegant Hero Section */
+/* Elegant Hero Section - Two Column Layout */
 .hero-section {
-  min-height: 80vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  padding: 100px 0;
 }
 
+/* Left Column - Text Content */
+.hero-content-left {
+  color: var(--text-primary);
+  padding-right: 2rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Right Column - Image with Irregular Rounded Frame */
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  animation: fadeInRight 1s ease-out;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  animation: morphShape 8s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02);
+}
+
+/* Animated morphing shape */
+@keyframes morphShape {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+/* Accent decoration behind image */
+.hero-image-accent {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--gold-500), var(--green-500));
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  opacity: 0.15;
+  z-index: -1;
+  animation: morphShape 8s ease-in-out infinite reverse;
+  filter: blur(20px);
+}
+
+/* Fade in animation for image */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Legacy hero content (for backward compatibility) */
 .hero-content {
   background: var(--glass-bg-strong);
   backdrop-filter: var(--glass-backdrop-strong);
@@ -718,6 +850,34 @@ code {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .hero-content-left {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   .hero-content {
     padding: 40px 20px;
   }
@@ -1107,8 +1267,9 @@ code {
 
 .original-price {
   font-size: 0.85rem;
-  opacity: 0.7;
+  opacity: 0.75;
   line-height: 1;
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .current-price {

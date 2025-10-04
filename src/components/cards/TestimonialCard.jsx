@@ -41,7 +41,7 @@ const TestimonialCard = ({ testimonial }) => {
             {testimonial.cargo} en {testimonial.empresa}
           </div>
           <div className="mt-2">
-            <small className="text-muted">
+            <small className="text-white">
               <i className="fas fa-project-diagram me-1"></i>
               {testimonial.proyecto}
             </small>

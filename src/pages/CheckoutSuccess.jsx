@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Checkout Success Page
- * Order Confirmation and Thank You Page
+ * TechSolutions Pro - Página de Compra Exitosa
+ * Confirmación de Pedido y Página de Agradecimiento
  * 
- * Post-purchase confirmation page with order details, animated success indicator,
- * next steps information, and navigation options. Features celebratory design
- * and comprehensive order summary.
+ * Página de confirmación post-compra con detalles del pedido, indicador animado de éxito,
+ * información de próximos pasos y opciones de navegación. Presenta diseño celebratorio
+ * y resumen completo del pedido.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React, { useEffect } from 'react';

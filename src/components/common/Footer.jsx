@@ -1,15 +1,15 @@
 /**
- * TechSolutions Pro - Footer Component
- * Site Footer with Company Information
+ * TechSolutions Pro - Componente Footer
+ * Pie de Página con Información de la Empresa
  * 
- * Website footer containing company information, social media links,
- * service links, and contact information. Features glassmorphism styling
- * and responsive layout.
+ * Pie de página del sitio web que contiene información de la empresa, enlaces de redes sociales,
+ * enlaces de servicios e información de contacto. Presenta estilo glassmorphism
+ * y layout responsive.
  * 
- * @author Rodrigo Sanchez
- * @website https://sanchezdev.com
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
  * @github https://github.com/RodrigoSanchezDev
- * @copyright © 2025 Rodrigo Sanchez. All rights reserved.
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
  */
 
 import React from 'react';
