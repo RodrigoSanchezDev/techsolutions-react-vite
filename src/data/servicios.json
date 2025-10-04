@@ -1,0 +1,110 @@
+{
+  "servicios": [
+    {
+      "id": 101,
+      "nombre": "Desarrollo Web Completo",
+      "categoria": "desarrollo", 
+      "precio": "$149/mes",
+      "precioOriginal": "$186/mes",
+      "descuento": 20,
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=250&fit=crop",
+      "descripcion": "Desarrollo de sitios web modernos, responsivos y optimizados",
+      "caracteristicas": [
+        "Responsive Design",
+        "Optimización SEO",
+        "Performance Optimization",
+        "Progressive Web Apps"
+      ],
+      "tecnologias": ["React", "Vue.js", "Angular"],
+      "destacado": true
+    },
+    {
+      "id": 102,
+      "nombre": "Aplicaciones Móviles",
+      "categoria": "desarrollo",
+      "precio": "$199/mes",
+      "precioOriginal": "$234/mes",
+      "descuento": 15,
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop",
+      "descripcion": "Apps móviles nativas e híbridas para iOS y Android",
+      "caracteristicas": [
+        "iOS & Android Nativo",
+        "React Native",
+        "Flutter",
+        "UI/UX Design"
+      ],
+      "tecnologias": ["Swift", "Kotlin", "React Native"],
+      "destacado": true
+    },
+    {
+      "id": 103,
+      "nombre": "Consultoría Cloud",
+      "categoria": "consultoria",
+      "precio": "$99/hora",
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
+      "descripcion": "Migración y optimización de infraestructura en la nube",
+      "caracteristicas": [
+        "AWS, Azure, GCP",
+        "Migración de datos",
+        "Optimización de costos",
+        "Arquitectura escalable"
+      ],
+      "tecnologias": ["AWS", "Azure", "Google Cloud"],
+      "destacado": true
+    },
+    {
+      "id": 104,
+      "nombre": "Ciberseguridad",
+      "categoria": "seguridad",
+      "precio": "$299/mes",
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
+      "descripcion": "Protección integral de sistemas y datos empresariales",
+      "caracteristicas": [
+        "Auditorías de seguridad",
+        "Monitoreo 24/7",
+        "Respuesta a incidentes",
+        "Capacitación del personal"
+      ],
+      "tecnologias": ["Firewall", "IDS/IPS", "SIEM"],
+      "destacado": true
+    },
+    {
+      "id": 105,
+      "nombre": "Data Analytics",
+      "categoria": "analytics",
+      "precio": "$179/mes",
+      "rating": 4,
+      "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+      "descripcion": "Análisis de datos y business intelligence",
+      "caracteristicas": [
+        "Dashboards interactivos",
+        "Machine Learning",
+        "Reportes automáticos",
+        "Predicciones de negocio"
+      ],
+      "tecnologias": ["Python", "R", "Tableau"],
+      "destacado": false
+    },
+    {
+      "id": 106,
+      "nombre": "DevOps & CI/CD",
+      "categoria": "desarrollo",
+      "precio": "$129/mes",
+      "rating": 5,
+      "imagen": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=250&fit=crop",
+      "descripcion": "Automatización de procesos de desarrollo y despliegue",
+      "caracteristicas": [
+        "Pipelines CI/CD",
+        "Containerización",
+        "Monitoreo de aplicaciones",
+        "Infraestructura como código"
+      ],
+      "tecnologias": ["Docker", "Kubernetes", "Jenkins"],
+      "destacado": false
+    }
+  ]
+}
