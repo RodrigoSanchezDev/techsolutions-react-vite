@@ -1,4 +1,28 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+/**
+ * TechSolutions Pro - Contexto del Carrito de Compras
+ * Estado Global del Carrito con Persistencia
+ * 
+ * Gestiona el estado del carrito usando useReducer.
+ * Incluye persistencia en localStorage y cálculo automático de totales e IVA.
+ * 
+ * Acciones disponibles:
+ * - ADD_ITEM: Agregar producto/servicio al carrito
+ * - REMOVE_ITEM: Eliminar item del carrito
+ * - UPDATE_QUANTITY: Actualizar cantidad de un item
+ * - CLEAR_CART: Vaciar el carrito completamente
+ * - LOAD_CART: Cargar carrito desde localStorage
+ * 
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
+ * @github https://github.com/RodrigoSanchezDev
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
+ */
+
+import React, { useReducer, useEffect } from 'react';
+import { CartContext } from './cartContextDefinition';
+
+// Re-export context for convenience
+export { CartContext };
 
 /**
  * @typedef {Object} CartItem
@@ -29,7 +53,7 @@ const initialCart = {
 };
 
 /**
- * Cart reducer function
+ * Cart reducer function - Maneja todas las acciones del carrito
  * @param {Cart} state - Current cart state
  * @param {Object} action - Action object with type and payload
  * @returns {Cart} New cart state
@@ -42,10 +66,12 @@ function cartReducer(state, action) {
       
       let newItems;
       if (existingItem) {
+        // Si ya existe, incrementa la cantidad
         newItems = state.items.map(i => 
           i.id === item.id ? { ...i, quantity: i.quantity + quantity } : i
         );
       } else {
+        // Si no existe, agrégalo al carrito
         newItems = [...state.items, { ...item, quantity }];
       }
       
@@ -53,16 +79,20 @@ function cartReducer(state, action) {
     }
     
     case 'REMOVE_ITEM': {
+      // Elimina el item del carrito
       const newItems = state.items.filter(item => item.id !== action.payload);
       return calculateTotals({ ...state, items: newItems });
     }
     
     case 'UPDATE_QUANTITY': {
       const { id, quantity } = action.payload;
+      
+      // Si la cantidad es 0 o negativa, elimina el item
       if (quantity <= 0) {
         return cartReducer(state, { type: 'REMOVE_ITEM', payload: id });
       }
       
+      // Actualiza la cantidad del item
       const newItems = state.items.map(item =>
         item.id === id ? { ...item, quantity } : item
       );
@@ -70,9 +100,11 @@ function cartReducer(state, action) {
     }
     
     case 'CLEAR_CART':
+      // Vacía completamente el carrito
       return initialCart;
     
     case 'LOAD_CART':
+      // Carga el carrito desde localStorage
       return action.payload;
     
     default:
@@ -81,17 +113,18 @@ function cartReducer(state, action) {
 }
 
 /**
- * Calculate cart totals including tax
+ * Calculate cart totals including tax (IVA chileno 19%)
  * @param {Cart} cart - Cart object to calculate totals for
  * @returns {Cart} Cart with updated totals
  */
 function calculateTotals(cart) {
+  // Calcula subtotal sumando precio * cantidad de cada item
   const subtotal = cart.items.reduce((sum, item) => {
     const price = parseFloat(item.precio.replace(/[$,/mes]/g, ''));
     return sum + (price * item.quantity);
   }, 0);
   
-  const tax = subtotal * 0.19; // 19% IVA
+  const tax = subtotal * 0.19; // 19% IVA chileno
   const total = subtotal + tax;
   const itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
   
@@ -103,9 +136,6 @@ function calculateTotals(cart) {
     itemCount
   };
 }
-
-// Context
-const CartContext = createContext(undefined);
 
 /**
  * Cart Provider Component
@@ -180,15 +210,4 @@ export function CartProvider({ children }) {
   );
 }
 
-/**
- * Custom hook to use cart context
- * @returns {Object} Cart context value
- * @throws {Error} If used outside CartProvider
- */
-export function useCart() {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
-  }
-  return context;
-}
+CartProvider.displayName = 'CartProvider';

@@ -15,6 +15,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap';
 import { useProducts } from '../hooks/useProducts';
 import ProductCard from '../components/cards/ProductCard';
+import RecommendedProducts from '../components/products/RecommendedProducts';
 import Loading from '../components/common/Loading';
 
 /**
@@ -108,6 +109,9 @@ const Products = () => {
             </Col>
           </Row>
         )}
+
+        {/* Productos Recomendados - También te puede interesar */}
+        <RecommendedProducts />
 
         {/* CTA Section */}
         <Row className="mt-5">

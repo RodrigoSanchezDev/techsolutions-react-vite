@@ -15,7 +15,8 @@
 import React from 'react';
 import { Container, Row, Col, Button, Badge } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../contexts/CartContext';
+import { useCart } from '../hooks/useCart';
+import RecommendedProducts from '../components/products/RecommendedProducts';
 
 /**
  * Shopping Cart Component
@@ -281,6 +282,9 @@ const Cart = () => {
             </div>
           </Col>
         </Row>
+
+        {/* Productos Recomendados - También te puede interesar */}
+        <RecommendedProducts />
       </Container>
     </div>
   );

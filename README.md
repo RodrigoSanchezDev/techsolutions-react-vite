@@ -40,9 +40,18 @@ Una plataforma de e-commerce profesional desarrollada con **React + Vite + JavaS
 
 ## 🌟 Características Principales
 
+### 🛍️ Sistema de E-commerce Avanzado
 - **Catálogo de Productos**: Sistema de filtrado por categorías con productos destacados
 - **Carrito Inteligente**: Dropdown glassmorphic con gestión de productos en tiempo real
+- **Notificaciones Toast**: Sistema de alertas contextuales para acciones del carrito (agregar, actualizar, eliminar)
+- **Animaciones del Carrito**: Icono animado con efectos bounce y shake al agregar productos
+- **Confirmación Visual**: Feedback instantáneo en botones al agregar productos
+- **Productos Recomendados**: Sección "También te puede interesar" con productos más vendidos
+- **Renderizado Condicional de Cards**: Las tarjetas muestran "En el carrito" con controles de cantidad cuando el producto ya está agregado
+- **Controles de Cantidad Inline**: Incrementar/decrementar cantidades directamente desde las cards sin ir al carrito
 - **Checkout Completo**: Proceso de pago con validación de formularios y pasarela de prueba
+
+### 🎨 Diseño y UX
 - **Diseño Responsive**: Glassmorphism con tema verde elegante y efectos visuales modernos
 - **Galería de Proyectos**: Portfolio interactivo con modales detallados
 - **Sistema de Testimonios**: Reseñas de clientes con calificaciones
@@ -63,11 +72,14 @@ Una plataforma de e-commerce profesional desarrollada con **React + Vite + JavaS
 - **Bootstrap 5.3.8** - Framework CSS
 
 ### Características Técnicas
-- **Context API** - Gestión de estado global del carrito
-- **LocalStorage** - Persistencia del carrito
-- **Custom Hooks** - Lógica reutilizable
+- **Context API Dual** - Gestión de estado global (CartContext + ToastContext)
+- **Custom Hooks** - useCart, useToast, useProducts, useServices, useTestimonials
+- **LocalStorage** - Persistencia del carrito entre sesiones
+- **Renderizado Condicional** - Cards dinámicas basadas en estado del carrito
+- **Sistema de Notificaciones** - Toast notifications con 4 variantes (success, danger, warning, info)
+- **Animaciones CSS** - Bounce, shake, pulse, slide-in con @keyframes
 - **Responsive Design** - Compatible con todos los dispositivos
-- **Glassmorphism** - Efectos visuales modernos profesionales
+- **Glassmorphism** - Efectos visuales modernos profesionales con blur y transparencias
 - **Font Awesome 6.4.0** - Sistema de iconos
 - **Sass** - Preprocesador CSS
 
@@ -98,25 +110,55 @@ Una plataforma de e-commerce profesional desarrollada con **React + Vite + JavaS
 
 ```
 techsolutions-react/
-├── public/                  # Archivos estáticos
-│   ├── index.html          # HTML principal
-│   └── assets/             # Imágenes y recursos
+├── public/                      # Archivos estáticos
+│   ├── index.html              # HTML principal
+│   └── assets/                 # Imágenes y recursos
 ├── src/
-│   ├── components/         # Componentes reutilizables
-│   │   ├── cards/         # ProductCard, ServiceCard, TestimonialCard
-│   │   ├── cart/          # CartDropdown
-│   │   └── common/        # Header, Footer, Loading
-│   ├── contexts/          # CartContext con useReducer
-│   ├── data/              # productos.json, servicios.json, testimonios.json
-│   ├── hooks/             # useProducts, useServices, useTestimonials
-│   ├── pages/             # Home, Products, Services, Gallery, Contact, Cart, Checkout
-│   ├── assets/            # Imágenes y recursos
-│   ├── App.jsx            # Componente principal
-│   ├── index.css          # Estilos globales + Glassmorphism
-│   └── main.jsx           # Entry point
-├── vite.config.js         # Configuración de Vite
-├── package.json           # Dependencias y scripts
-└── README.md              # Este archivo
+│   ├── components/             # Componentes reutilizables
+│   │   ├── cards/             # ProductCard, ServiceCard, TestimonialCard
+│   │   │   ├── ProductCard.jsx      # Card con renderizado condicional + controles de cantidad
+│   │   │   ├── ServiceCard.jsx      # Card con renderizado condicional + controles de cantidad
+│   │   │   └── TestimonialCard.jsx
+│   │   ├── cart/              # Componentes del carrito
+│   │   │   ├── CartDropdown.jsx     # Dropdown del carrito
+│   │   │   └── RecommendedProducts.jsx  # Productos recomendados
+│   │   ├── common/            # Componentes comunes
+│   │   │   ├── Header.jsx     # Header con animaciones del carrito
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Loading.jsx
+│   │   │   └── Toast.jsx      # Sistema de notificaciones toast
+│   │   └── ...
+│   ├── contexts/              # Contextos de estado global
+│   │   ├── CartContext.jsx           # Provider del carrito
+│   │   ├── cartContextDefinition.js  # Definición del CartContext (Fast Refresh)
+│   │   ├── ToastContext.jsx          # Provider de notificaciones
+│   │   └── toastContextDefinition.js # Definición del ToastContext (Fast Refresh)
+│   ├── data/                  # Datos JSON
+│   │   ├── productos.json     # Productos con campo "vendidos"
+│   │   ├── servicios.json
+│   │   └── testimonios.json
+│   ├── hooks/                 # Custom hooks
+│   │   ├── useCart.js         # Hook para acceder al CartContext
+│   │   ├── useToast.js        # Hook para notificaciones toast
+│   │   ├── useProducts.js
+│   │   ├── useServices.js
+│   │   └── useTestimonials.js
+│   ├── pages/                 # Páginas/Rutas
+│   │   ├── Home.jsx
+│   │   ├── Products.jsx       # Con sección de productos recomendados
+│   │   ├── Services.jsx
+│   │   ├── Gallery.jsx
+│   │   ├── Contact.jsx
+│   │   ├── Cart.jsx           # Con sección de productos recomendados
+│   │   ├── Checkout.jsx
+│   │   └── CheckoutSuccess.jsx
+│   ├── assets/                # Imágenes y recursos
+│   ├── App.jsx                # Componente principal
+│   ├── index.css              # Estilos globales + Glassmorphism + Animaciones
+│   └── main.jsx               # Entry point
+├── vite.config.js             # Configuración de Vite
+├── package.json               # Dependencias y scripts
+└── README.md                  # Este archivo
 ```
 
 ## 🚀 Instalación y Configuración
@@ -178,22 +220,72 @@ npm run preview
 
 ## 📱 Funcionalidades Principales
 
-### E-commerce Completo
-- ✅ Catálogo de productos con filtros por categoría
-- ✅ Carrito de compras persistente (LocalStorage)
-- ✅ Gestión de cantidades (agregar, aumentar, disminuir, eliminar)
-- ✅ Proceso de checkout completo con validación
-- ✅ Página de confirmación de pedido con detalles
-- ✅ Cálculo automático de totales y subtotales
-- ✅ Productos y servicios destacados
+### 🛒 E-commerce Completo
+- ✅ **Catálogo de productos** con filtros por categoría
+- ✅ **Carrito de compras persistente** (LocalStorage)
+- ✅ **Gestión de cantidades** (agregar, aumentar, disminuir, eliminar)
+- ✅ **Sistema de notificaciones Toast**: Feedback visual al agregar/modificar/eliminar productos
+- ✅ **Animaciones del carrito**: Icono animado (bounce, shake, badge pulse) al agregar items
+- ✅ **Confirmación visual en botones**: Estado "adding..." con spinner durante la acción
+- ✅ **Productos recomendados**: Sección "También te puede interesar" basada en productos más vendidos
+- ✅ **Renderizado condicional de cards**: 
+  - Muestra botón "Agregar al Carrito" si el producto NO está en el carrito
+  - Muestra badge "En el carrito" + controles de cantidad si YA está agregado
+- ✅ **Controles de cantidad inline**: Incrementar/decrementar desde las cards sin navegar al carrito
+- ✅ **Smart filtering**: Los productos recomendados excluyen items ya agregados al carrito
+- ✅ **Proceso de checkout completo** con validación
+- ✅ **Página de confirmación** de pedido con detalles
+- ✅ **Cálculo automático** de totales y subtotales
 
-### Contenido Corporativo
+### 🏢 Contenido Corporativo
 - ✅ Página de inicio con hero section y estadísticas
 - ✅ Galería de proyectos con modales informativos
 - ✅ Catálogo de servicios profesionales
 - ✅ Testimonios de clientes con ratings
 - ✅ Formulario de contacto funcional
 - ✅ Información empresarial completa
+
+### 🎯 Características Técnicas Avanzadas
+
+#### Sistema de Contextos
+```javascript
+// CartContext - Gestión del carrito con useReducer
+- addItem(item) - Agregar producto/servicio
+- removeItem(id) - Eliminar del carrito
+- updateQuantity(id, quantity) - Actualizar cantidad
+- clearCart() - Vaciar carrito completo
+- Persistencia automática en localStorage
+
+// ToastContext - Sistema de notificaciones
+- showToast(message, variant) - Mostrar notificación
+- Variantes: success, danger, warning, info
+- Auto-close configurable (default: 3000ms)
+```
+
+#### Renderizado Condicional en Cards
+```javascript
+// ProductCard.jsx & ServiceCard.jsx
+- Detecta si el producto está en el carrito
+- Renderiza condicionalmente:
+  1. Botón "Agregar al Carrito" (no está en carrito)
+  2. Badge "En el carrito" + Controles de cantidad (está en carrito)
+- Controles inline:
+  - Botón "-" (o icono basura si cantidad = 1)
+  - Display de cantidad actual
+  - Botón "+" para incrementar
+- Toast notifications en cada acción
+```
+
+#### Animaciones CSS
+```css
+/* Animaciones implementadas */
+- @keyframes bounce - Icono del carrito al agregar
+- @keyframes shake - Feedback adicional
+- @keyframes badgePop - Badge de contador
+- @keyframes slideInRight - Toast notifications
+- @keyframes pulse - Badge "En el carrito"
+- Transiciones suaves con cubic-bezier
+```
 
 ## 🔧 Scripts Disponibles
 
@@ -234,6 +326,40 @@ npm run lint         # Ejecutar ESLint para revisar código
   quantity: 2,
   type: "producto" // o "servicio"
 }
+```
+
+### Sistema de Notificaciones (Toast)
+```javascript
+// ToastContext - useState pattern
+const { showToast } = useToast();
+
+// Uso
+showToast('Producto agregado al carrito', 'success');
+showToast('Cantidad actualizada', 'info');
+showToast('Producto eliminado', 'danger');
+
+// Variantes disponibles
+- success: Verde - Acciones exitosas
+- danger: Rojo - Eliminaciones o errores
+- warning: Amarillo - Advertencias
+- info: Azul - Información general
+```
+
+### Productos Recomendados
+```javascript
+// data/productos.json - Campo "vendidos" agregado
+{
+  "id": 1,
+  "nombre": "E-commerce Pro",
+  "vendidos": 2340, // Usado para ordenar recomendaciones
+  ...
+}
+
+// RecommendedProducts.jsx
+- Filtra productos ya en el carrito
+- Ordena por campo "vendidos" (descendente)
+- Muestra top 3 productos más vendidos
+- Se renderiza en páginas Products y Cart
 ```
 
 ## 🌐 Despliegue
@@ -397,7 +523,49 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 - [React Router v7](https://reactrouter.com/)
 - [Bootstrap Documentation](https://getbootstrap.com/)
 
-## 🎯 Próximas Mejoras
+## ✨ Características Implementadas Recientemente
+
+### 🎨 Sistema de Notificaciones Toast
+- ✅ Componente `Toast.jsx` con 4 variantes de estilo
+- ✅ Context API dedicado (`ToastContext`)
+- ✅ Hook personalizado `useToast()` para fácil integración
+- ✅ Auto-close con duración configurable
+- ✅ Animación slide-in desde la derecha
+- ✅ Posicionamiento fixed top-right
+- ✅ Integrado en todas las acciones del carrito
+
+### � Animaciones del Carrito
+- ✅ Animación bounce del icono al agregar productos
+- ✅ Efecto shake para feedback adicional
+- ✅ Badge counter con animación pop
+- ✅ Transiciones suaves cubic-bezier
+- ✅ useEffect para detectar cambios en itemCount
+
+### 🔘 Confirmación Visual en Botones
+- ✅ Estado "Agregando..." con spinner durante la acción
+- ✅ Checkmark verde al completar
+- ✅ Feedback inmediato al usuario
+- ✅ Prevención de doble-click
+
+### 💡 Productos Recomendados
+- ✅ Componente `RecommendedProducts.jsx`
+- ✅ Algoritmo basado en campo "vendidos"
+- ✅ Filtrado inteligente (excluye items en carrito)
+- ✅ Integrado en páginas Products y Cart
+- ✅ Top 3 productos más vendidos
+- ✅ Diseño glassmorphic consistente
+
+### 🏷️ Renderizado Condicional de Cards
+- ✅ Detección automática si producto está en carrito
+- ✅ Badge "En el carrito" con animación pulse
+- ✅ Controles de cantidad inline (sin navegar al carrito)
+- ✅ Botón incrementar (+)
+- ✅ Botón decrementar (-) o eliminar (basura si qty=1)
+- ✅ Display de cantidad actual
+- ✅ Toast notifications en cada cambio
+- ✅ Glassmorphism en controles de cantidad
+
+## �🎯 Próximas Mejoras
 
 - [ ] Integración con backend real (Node.js/Express)
 - [ ] Autenticación de usuarios (JWT)
@@ -407,8 +575,9 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 - [ ] Wishlist de productos
 - [ ] Comparador de productos
 - [ ] Reviews y comentarios de usuarios
-- [ ] Sistema de notificaciones
 - [ ] PWA (Progressive Web App)
+- [ ] Modo oscuro/claro toggle
+- [ ] Filtros avanzados (rango de precio, rating, etc.)
 
 ---
 

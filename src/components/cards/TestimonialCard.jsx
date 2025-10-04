@@ -1,22 +1,28 @@
+/**
+ * TechSolutions Pro - Componente Tarjeta de Testimonio
+ * Tarjeta de Reseña de Cliente
+ * 
+ * Muestra testimonios de clientes con rating de estrellas, texto de reseña
+ * y información del cliente. Diseño glassmorphic con animaciones.
+ * 
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
+ * @github https://github.com/RodrigoSanchezDev
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
+ */
+
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { renderStars } from '../../utils/helpers.jsx';
 
 /**
  * Testimonial Card Component
+ * Displays customer testimonials with rating
  * @param {Object} props - Component props
  * @param {Testimonial} props.testimonial - Testimonial object to display
  * @returns {JSX.Element} Testimonial card component
  */
 const TestimonialCard = ({ testimonial }) => {
-  const renderStars = (rating) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      <i
-        key={index}
-        className={`fas fa-star ${index < rating ? 'text-warning' : 'text-muted'}`}
-      />
-    ));
-  };
-
   return (
     <Card className="testimonial-card h-100 fade-in-up">
       <Card.Body>

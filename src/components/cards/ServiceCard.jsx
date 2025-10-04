@@ -1,34 +1,40 @@
+/**
+ * TechSolutions Pro - Componente Tarjeta de Servicio
+ * Tarjeta de Servicio con Gestión de Carrito
+ * 
+ * Muestra información del servicio con imagen, rating, precio y badges.
+ * Incluye funcionalidad completa de carrito con renderizado condicional:
+ * - Botón "Agregar" si no está en el carrito
+ * - Badge "En el carrito" + controles de cantidad si ya está agregado
+ * 
+ * @autor Rodrigo Sanchez
+ * @sitioWeb https://sanchezdev.com
+ * @github https://github.com/RodrigoSanchezDev
+ * @derechosAutor © 2025 Rodrigo Sanchez. Todos los derechos reservados.
+ */
+
 import React from 'react';
-import { Card, Badge, Button } from 'react-bootstrap';
-import { useCart } from '../../contexts/CartContext';
+import { Card, Badge, Button, ButtonGroup } from 'react-bootstrap';
+import { useCartItem } from '../../hooks/useCartItem';
+import { renderStars } from '../../utils/helpers.jsx';
 
 /**
  * Service Card Component
+ * Displays service information with cart management
  * @param {Object} props - Component props
  * @param {Service} props.service - Service object to display
  * @returns {JSX.Element} Service card component
  */
 const ServiceCard = ({ service }) => {
-  const { addItem } = useCart();
-
-  const handleAddToCart = () => {
-    addItem({
-      id: service.id,
-      nombre: service.nombre,
-      precio: service.precio,
-      imagen: service.imagen,
-      type: 'servicio'
-    }, 1);
-  };
-
-  const renderStars = (rating) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      <i
-        key={index}
-        className={`fas fa-star ${index < rating ? 'text-warning' : 'text-muted'}`}
-      />
-    ));
-  };
+  // Hook personalizado con toda la lógica del carrito
+  const {
+    itemInCart,
+    quantity,
+    isAdding,
+    handleAddToCart,
+    handleIncrement,
+    handleDecrement
+  } = useCartItem(service, 'servicio');
 
   return (
     <Card className="product-card h-100 fade-in-up">
@@ -98,13 +104,55 @@ const ServiceCard = ({ service }) => {
                 <div className="price">{service.precio}</div>
               )}
             </div>
-            <Button 
-              className="glass-btn btn-success"
-              onClick={handleAddToCart}
-            >
-              <i className="fas fa-cart-plus me-2"></i>
-              Agregar
-            </Button>
+            {itemInCart ? (
+              <div className="d-flex flex-column align-items-end gap-2">
+                <Badge bg="success" className="mb-1">
+                  <i className="fas fa-check-circle me-1"></i>
+                  En el carrito
+                </Badge>
+                <ButtonGroup size="sm" className="quantity-controls-card">
+                  <Button
+                    variant="outline-danger"
+                    className="glass-btn"
+                    onClick={handleDecrement}
+                  >
+                    {quantity === 1 ? (
+                      <i className="fas fa-trash"></i>
+                    ) : (
+                      <i className="fas fa-minus"></i>
+                    )}
+                  </Button>
+                  <Button variant="outline-light" className="glass-btn px-3" disabled>
+                    <strong>{quantity}</strong>
+                  </Button>
+                  <Button
+                    variant="outline-success"
+                    className="glass-btn"
+                    onClick={handleIncrement}
+                  >
+                    <i className="fas fa-plus"></i>
+                  </Button>
+                </ButtonGroup>
+              </div>
+            ) : (
+              <Button 
+                className={`glass-btn ${isAdding ? 'btn-success-confirm' : 'btn-success'}`}
+                onClick={handleAddToCart}
+                disabled={isAdding}
+              >
+                {isAdding ? (
+                  <>
+                    <i className="fas fa-check me-2"></i>
+                    ¡Agregado!
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-cart-plus me-2"></i>
+                    Agregar
+                  </>
+                )}
+              </Button>
+            )}
           </div>
         </div>
       </Card.Body>

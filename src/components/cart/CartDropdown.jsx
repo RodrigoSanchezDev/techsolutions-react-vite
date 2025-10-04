@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useCart } from '../../contexts/CartContext';
+import { useCart } from '../../hooks/useCart';
 
 /**
  * Cart Dropdown Component

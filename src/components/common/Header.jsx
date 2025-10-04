@@ -15,7 +15,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import { useCart } from '../../contexts/CartContext';
+import { useCart } from '../../hooks/useCart';
 import CartDropdown from '../cart/CartDropdown';
 
 /**
@@ -27,7 +27,9 @@ const Header = () => {
   const location = useLocation();
   const { cart } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartAnimation, setCartAnimation] = useState(false);
   const cartRef = useRef(null);
+  const prevItemCount = useRef(cart.itemCount);
 
   const isActive = (path) => location.pathname === path;
 
@@ -39,6 +41,17 @@ const Header = () => {
   const closeCart = () => {
     setIsCartOpen(false);
   };
+
+  // Animación cuando se agrega un producto al carrito
+  useEffect(() => {
+    if (cart.itemCount > prevItemCount.current) {
+      setCartAnimation(true);
+      setTimeout(() => {
+        setCartAnimation(false);
+      }, 600);
+    }
+    prevItemCount.current = cart.itemCount;
+  }, [cart.itemCount]);
 
   // Cerrar carrito al hacer click fuera
   useEffect(() => {
@@ -117,16 +130,20 @@ const Header = () => {
             <div className="position-relative" ref={cartRef}>
               <button
                 onClick={toggleCart}
-                className={`glass-btn btn-outline-primary position-relative ${isActive('/cart') ? 'active' : ''}`}
+                className={`glass-btn btn-outline-primary position-relative ${
+                  isActive('/cart') ? 'active' : ''
+                } ${cartAnimation ? 'cart-bounce' : ''}`}
                 style={{ background: 'none', border: '1px solid rgba(255, 255, 255, 0.3)' }}
               >
-                <i className="fas fa-shopping-cart me-1"></i>
+                <i className={`fas fa-shopping-cart me-1 ${cartAnimation ? 'cart-shake' : ''}`}></i>
                 Carrito
                 {cart.itemCount > 0 && (
                   <Badge 
                     bg="danger" 
                     pill 
-                    className="position-absolute top-0 start-100 translate-middle"
+                    className={`position-absolute top-0 start-100 translate-middle ${
+                      cartAnimation ? 'cart-badge-pop' : ''
+                    }`}
                   >
                     {cart.itemCount}
                   </Badge>

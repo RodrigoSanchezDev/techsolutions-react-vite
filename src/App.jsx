@@ -14,6 +14,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
+import { ToastProvider } from './contexts/ToastContext';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
@@ -35,25 +36,27 @@ import CheckoutSuccess from './pages/CheckoutSuccess';
 function App() {
   return (
     <CartProvider>
-      <Router basename="/techsolutions-react-vite">
-        <div className="App">
-          <Header />
-          <main style={{ minHeight: 'calc(100vh - 200px)' }}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/checkout-success" element={<CheckoutSuccess />} />
-              <Route path="/checkout/success" element={<CheckoutSuccess />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
+      <ToastProvider>
+        <Router basename="/techsolutions-react-vite">
+          <div className="App">
+            <Header />
+            <main style={{ minHeight: 'calc(100vh - 200px)' }}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/checkout-success" element={<CheckoutSuccess />} />
+                <Route path="/checkout/success" element={<CheckoutSuccess />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </ToastProvider>
     </CartProvider>
   );
 }

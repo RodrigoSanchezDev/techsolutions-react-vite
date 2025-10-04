@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-import { useCart } from '../contexts/CartContext';
+import { useCart } from '../hooks/useCart';
 import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
@@ -70,7 +70,7 @@ const Checkout = () => {
           }
         }
       });
-    } catch (error) {
+    } catch {
       setShowError(true);
       setIsProcessing(false);
     }
